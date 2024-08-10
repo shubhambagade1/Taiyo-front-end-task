@@ -1,46 +1,59 @@
-# Getting Started with Create React App
+Working of Contact App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+First I have created component file to store all the components.
+1.Index.tsx
+I have a index.tsx file to use store to store the data of contacts and give the access of store to entire app and also have the appRouter for single page application.
+Imported Tailwind CSS from index.css
 
-## Available Scripts
+2.App.tsx
+Added aal components and added paths to it using react router.
 
-In the project directory, you can run:
+3.Dashboard.tsx
+I have created a simple dashboard 
 
-### `npm start`
+4.Sidebar.tsx
+This component is used for render sidebar for every component.This the is the best practice to render for reacct router.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+5.Contact.tsx
+This is the main component that manages the state and interactions between the various subcomponents (ContactList and Modal). It handles adding, editing, viewing, and deleting contacts.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+6.Modal.tsx
+This component provides a form for creating, editing, or viewing a contact. It is rendered as a modal dialog.
 
-### `npm test`
+7. ContactList.tsx
+This component displays a list of contacts and provides buttons to edit, view details, or delete each contact.
+The component renders a list of contact items.
+For each contact, it displays the first and last name, and three buttons (View Details, Edit, Delete).
+If there are no contacts, it displays a message indicating that no contacts were found.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+8.Store.tsx,contactSlice.tsx
+This 2 files are used to manage storage for contact data
+ configureStore is used to set up the Redux store with reducers and middleware.
+ The store is configured with a single reducer for managing contact data, which is wrapped with persistence capabilities using redux-persist
 
-### `npm run build`
+contactSilice  is used to create a slice of the Redux store. A slice includes a reducer and actions for managing a part of the Redux state.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This is the working of the contact application
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+Map and Chart
+To render the chart and map with the covid data I created one component named as Graphs.tsx…react-leaflet is used to display the covid map.
+Leaflet is a popular open-source JavaScript library for interactive maps, and react-leaflet wraps this functionality in React components, making it easier to use Leaflet with React.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This component have imported 2 components one is to render the chart and another one is for Map.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+MapComponent.tsx
+ is a React functional component that displays a map using Leaflet and overlays markers for COVID-19 data of various countries. It utilizes React Query for fetching data from an external API and manages the data's loading and error states.
+https://disease.sh/v3/covid-19/countries
+This api is used to fetch the countires from api 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+LineChartComponent.tsx
+The LineChartComponent is a React component that displays a line chart of COVID-19 case fluctuations over time. It uses the recharts library for chart rendering and react-query for data fetching.
+https://disease.sh/v3/covid-19/historical/all?lastdays=all
+This api is used to fetch the data for cases over days
 
-## Learn More
+This how the Map and chart component works…
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
