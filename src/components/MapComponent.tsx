@@ -29,7 +29,7 @@ const MapComponent: React.FC = () => {
         <div className="p-4 lg:w-5/12">
             <h2 className="font-bold text-blue-600 mb-6 text-lg">COVID-19 Cases Map</h2>
             <div className="h-80 sm:h-96 lg:h-[500px]">
-                <MapContainer center={[0, 0]} zoom={2} style={{ height: "100%", width: "100%" zIndex: "0" }}>
+                <MapContainer center={[0, 0]} zoom={2} style={{ height: "100%", width: "100%", zIndex: "0"}}>
                     <TileLayer
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
